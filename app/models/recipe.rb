@@ -17,4 +17,19 @@ class Recipe < ActiveRecord::Base
      ingredient_quantity = counts.map{|k, v|"#{v} * #{k}"}
      ingredient_quantity
   end
+
+  #Separate search method for querying by recipe name attribute
+  def self.search_name(search_term)
+    where("name like ?", "%#{search_term}%")
+  end
+
+  #Separate search method for querying by recipe cooking time attribute
+  def self.search_cooking_time(search_term)
+    where("cooking_time like ?", "%#{search_term}%")
+  end
+
+  #Separate search method for querying by recipe ingredients - required join as searching an underlying object vs simple attribute
+  def self.search_ingredients(search_term)
+    joins(:ingredients).uniq.where(ingredients: {name: "#{search_term}"})
+  end
 end

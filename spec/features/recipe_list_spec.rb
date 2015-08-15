@@ -18,6 +18,7 @@ feature 'RecipeList' do
     expect(page).to have_content("Chicken, Lemon, Thyme")
   end
 
+  #Chose to keep recipe inputs consistent e.g. Chicken Caesar Salad across all as opposed to just Caesar Sald in one spec
   scenario 'When multiple recipes exist in the system displays all their details (name, cooking time and ingredients)' do
     @recipe = Recipe.create(name: "Lemon Chicken", cooking_time: "30 minutes")
     @recipe.ingredients.create(name: "Chicken")
@@ -27,9 +28,9 @@ feature 'RecipeList' do
     @recipe.ingredients.create(name: "Beef")
     @recipe.ingredients.create(name: "Mustard")
     @recipe.ingredients.create(name: "Mushrooms")
-    @recipe = Recipe.create(name: "Caesar Salad", cooking_time: "25 minutes")
+    @recipe = Recipe.create(name: "Chicken Caesar Salad", cooking_time: "25 minutes")
     @recipe.ingredients.create(name: "Lettuce")
-    @recipe.ingredients.create(name: "Croutons")
+    @recipe.ingredients.create(name: "Chicken")
     @recipe.ingredients.create(name: "Parmesan")
 
     visit '/'
@@ -39,9 +40,9 @@ feature 'RecipeList' do
     expect(page).to have_content("Beef Stroganoff")
     expect(page).to have_content("30 minutes")
     expect(page).to have_content("Beef, Mustard, Mushrooms")
-    expect(page).to have_content("Caesar Salad")
+    expect(page).to have_content("Chicken Caesar Salad")
     expect(page).to have_content("25 minutes")
-    expect(page).to have_content("Lettuce, Croutons, Parmesan")
+    expect(page).to have_content("Lettuce, Chicken, Parmesan")
   end
 
   scenario 'When click on recipe name then user is taken to the recipe page' do
@@ -91,15 +92,15 @@ feature 'RecipeList' do
     @recipe.ingredients.create(name: "Mushrooms")
 
     #create recipe that won't be showing on second page - would sit on third page
-    @recipe = Recipe.create(name: "Caesar Salad", cooking_time: "25 minutes")
+    @recipe = Recipe.create(name: "Chicken Caesar Salad", cooking_time: "25 minutes")
     @recipe.ingredients.create(name: "Lettuce")
-    @recipe.ingredients.create(name: "Croutons")
+    @recipe.ingredients.create(name: "Chicken")
     @recipe.ingredients.create(name: "Parmesan")
     visit '/'
     click_link '2'
     expect(page).to have_content("Beef Stroganoff")
-    expect(page).not_to have_content("Caesar Salad")
+    expect(page).not_to have_content("Chicken Caesar Salad")
     click_link '3'
-    expect(page).to have_content("Caesar Salad")
+    expect(page).to have_content("Chicken Caesar Salad")
   end
 end

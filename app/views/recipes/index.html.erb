@@ -1,5 +1,11 @@
 <div class='row'>
-  <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+  <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+
+    <%if @search_message %>
+      <p>
+        <%=@search_message%>
+      </p>
+    <%end%>
     <table class="table table-hover">
       <thead>
           <th></th>
@@ -10,7 +16,31 @@
       </thead>
 
       <tbody>
-        <%if @recipes.count > 0 %>
+        <tr>
+          <td></td>
+          <td>
+            <%= form_tag(recipes_path, :method => 'get', class: 'search_form name_form', enforce_utf8: false) do %>
+              <%= label_tag :search_name, "Search by Name" %>
+              <%= text_field_tag :search_name, params[:search_name], placeholder: "Search recipes" %>
+              <button id="search-name"><%= submit_tag "Search", :name => nil %></button>
+            <% end %>
+          </td>
+          <td>
+            <%= form_tag(recipes_path, :method => 'get', class: 'search_form time_form', enforce_utf8: false) do %>
+              <%= label_tag :search_cooking_time, "Search by Cooking Time" %>
+              <%= text_field_tag :search_cooking_time, params[:search_cooking_time], placeholder: "Search recipes" %>
+              <button id="search-time"><%= submit_tag "Search", :name => nil %></button>
+            <% end %>
+          </td>
+          <td>
+            <%= form_tag(recipes_path, :method => 'get', class: 'search_form ingredients_form', enforce_utf8: false) do %>
+                <%= label_tag :search_ingredients, "Search by Ingredients" %>
+                <%= text_field_tag :search_ingredients, params[:search_ingredients], placeholder: "Search recipes" %>
+                <button id="search-ingredients"><%= submit_tag "Search", :name => nil %></button>
+            <% end %>
+          </td>
+        </tr>
+        <%if Recipe.all.count > 0 %>
           <% @recipes.each do |recipe| %>
             <tr>
               <td>
