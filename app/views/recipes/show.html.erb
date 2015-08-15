@@ -1,0 +1,17 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-6 col-md-offset-4'>
+      <%if @recipe %>
+       <h4 class='recipe-name'><%=@recipe.name%></h4>
+
+        <p class='recipe-detail'><i>Cooking Time:</i> <b><%=@recipe.cooking_time%>%></b></p>
+        <p class='recipe-detail'><i>Ingredients Required:</i> <%@recipe.quantity_of_ingredients.each do |ingredient|%>
+            <b><%=ingredient%></b>
+          <%end%>
+      <%else%>
+        Sorry, this recipe doesn't exist or may have been removed
+        <%= link_to 'Home', recipes_path%>
+      <%end%>
+    </div>
+  </div>
+</div>

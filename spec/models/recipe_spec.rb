@@ -17,4 +17,15 @@ describe Recipe do
     @recipe.ingredients.create(name: "Thyme")
     expect(@recipe.display_individual_ingredients).to eq(["Chicken", "Lemon", "Thyme"])
   end
+
+  it "can display the quantity of ingredients required as text" do
+    @recipe = Recipe.create(name: "Lemon Chicken", cooking_time: "30 minutes")
+    @recipe.ingredients.create(name: "Chicken")
+    @recipe.ingredients.create(name: "Chicken")
+    @recipe.ingredients.create(name: "Chicken")
+    @recipe.ingredients.create(name: "Chicken")
+    @recipe.ingredients.create(name: "Lemon")
+    @recipe.ingredients.create(name: "Thyme")
+    expect(@recipe.quantity_of_ingredients).to eq(["4 * Chicken", "1 * Lemon", "1 * Thyme"])
+  end
 end

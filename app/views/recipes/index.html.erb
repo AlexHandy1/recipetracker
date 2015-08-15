@@ -1,34 +1,36 @@
-<div class='row'>
-  <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-    <table class="table table-hover">
-      <thead>
-          <th>Name</th>
-          <th>Cooking Time</th>
-          <th>Ingredients</th>
-        </tr>
-      </thead>
+<div class='container'>
+  <div class='row'>
+    <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+      <table class="table table-hover">
+        <thead>
+            <th>Name</th>
+            <th>Cooking Time</th>
+            <th>Ingredients</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        <%if @recipes.count > 0 %>
-          <% @recipes.each do |recipe| %>
-            <tr>
-              <td class='name'>
-                <%=link_to recipe.name, recipe_path(recipe) %>
-              </td>
-              <td class='cooking-time'>
-                <%=recipe.cooking_time%>
-              </td>
-              <td class='ingredients'>
-                <%recipe.display_individual_ingredients.each do |ingredient| %>
-                    <%=ingredient%>,
-                  <%end%>
-              </td>
-            </tr>
-          <% end %>
-          <%else%>
-            Sorry, we currently have no recipes for you
-          <% end %>
-      </tbody>
-    </table>
+        <tbody>
+          <%if @recipes.count > 0 %>
+            <% @recipes.each do |recipe| %>
+              <tr>
+                <td class='name'>
+                  <%=link_to recipe.name, recipe_path(recipe) %>
+                </td>
+                <td class='cooking-time'>
+                  <%=recipe.cooking_time%>
+                </td>
+                <td class='ingredients'>
+                  <%recipe.display_individual_ingredients.each do |ingredient| %>
+                      <%=ingredient%>,
+                    <%end%>
+                </td>
+              </tr>
+            <% end %>
+            <%else%>
+              Sorry, we currently have no recipes for you
+            <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
