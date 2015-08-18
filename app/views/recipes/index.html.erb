@@ -22,21 +22,27 @@
             <%= form_tag(recipes_path, :method => 'get', class: 'search_form name_form', enforce_utf8: false) do %>
               <%= label_tag :search_name, "Search by Name" %>
               <%= text_field_tag :search_name, params[:search_name], placeholder: "Search recipes" %>
-              <button id="search-name"><%= submit_tag "Search", :name => nil %></button>
+              <%= button_tag(type: 'submit', class: "btn btn-primary", :id=> "search") do %>
+                <span class="glyphicon glyphicon-search"></span>
+              <%end%>
             <% end %>
           </td>
           <td>
             <%= form_tag(recipes_path, :method => 'get', class: 'search_form time_form', enforce_utf8: false) do %>
               <%= label_tag :search_cooking_time, "Search by Cooking Time" %>
               <%= text_field_tag :search_cooking_time, params[:search_cooking_time], placeholder: "Search recipes" %>
-              <button id="search-time"><%= submit_tag "Search", :name => nil %></button>
+              <%= button_tag(type: 'submit', class: "btn btn-primary", :id=> "search") do %>
+                  <span class="glyphicon glyphicon-search"></span>
+              <%end%>
             <% end %>
           </td>
           <td>
             <%= form_tag(recipes_path, :method => 'get', class: 'search_form ingredients_form', enforce_utf8: false) do %>
                 <%= label_tag :search_ingredients, "Search by Ingredients" %>
                 <%= text_field_tag :search_ingredients, params[:search_ingredients], placeholder: "Search recipes" %>
-                <button id="search-ingredients"><%= submit_tag "Search", :name => nil %></button>
+                <%= button_tag(type: 'submit', class: "btn btn-primary", :id=> "search") do %>
+                  <span class="glyphicon glyphicon-search"></span>
+                <%end%>
             <% end %>
           </td>
         </tr>
@@ -54,8 +60,8 @@
               </td>
               <td class='ingredients'>
                 <%recipe.display_individual_ingredients.each do |ingredient| %>
-                    <%=ingredient%>,
-                  <%end%>
+                    | <%=ingredient%>
+                  <%end%> |
               </td>
             </tr>
           <% end %>

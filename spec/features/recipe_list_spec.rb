@@ -15,7 +15,7 @@ feature 'RecipeList' do
     visit '/'
     expect(page).to have_content("Lemon Chicken")
     expect(page).to have_content("30 minutes")
-    expect(page).to have_content("Chicken, Lemon, Thyme")
+    expect(page).to have_content("| Chicken | Lemon | Thyme |")
   end
 
   #Chose to keep recipe inputs consistent e.g. Chicken Caesar Salad across all as opposed to just Caesar Sald in one spec
@@ -36,13 +36,13 @@ feature 'RecipeList' do
     visit '/'
     expect(page).to have_content("Lemon Chicken")
     expect(page).to have_content("30 minutes")
-    expect(page).to have_content("Chicken, Lemon, Thyme")
+    expect(page).to have_content("| Chicken | Lemon | Thyme |")
     expect(page).to have_content("Beef Stroganoff")
     expect(page).to have_content("30 minutes")
-    expect(page).to have_content("Beef, Mustard, Mushrooms")
+    expect(page).to have_content("| Beef | Mustard | Mushrooms |")
     expect(page).to have_content("Chicken Caesar Salad")
     expect(page).to have_content("25 minutes")
-    expect(page).to have_content("Lettuce, Chicken, Parmesan")
+    expect(page).to have_content("| Lettuce | Chicken | Parmesan |")
   end
 
   scenario 'When click on recipe name then user is taken to the recipe page' do

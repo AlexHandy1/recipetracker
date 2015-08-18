@@ -20,7 +20,7 @@ feature 'RecipeFilter' do
     visit ('/')
     within(".name_form") do
       fill_in 'search_name', with: 'Lasagne'
-      click_button('Search')
+      page.find('#search').click
     end
     expect(page).to have_content('Sorry, nothing matched your filter term')
   end
@@ -29,7 +29,7 @@ feature 'RecipeFilter' do
     visit ('/')
     within(".name_form") do
       fill_in 'search_name', with: 'Chicken'
-      click_button('Search')
+      page.find('#search').click
     end
     expect(page).to have_content('Lemon Chicken')
     expect(page).to have_content('Chicken Caesar Salad')
@@ -39,7 +39,7 @@ feature 'RecipeFilter' do
     visit ('/')
     within(".time_form") do
       fill_in 'search_cooking_time', with: '25 minutes'
-      click_button('Search')
+      page.find('#search').click
     end
     expect(page).to have_content('Chicken Caesar Salad')
     expect(page).not_to have_content('Lemon Chicken')
@@ -50,7 +50,7 @@ feature 'RecipeFilter' do
     visit ('/')
     within(".ingredients_form") do
       fill_in'search_ingredients', with: 'Lettuce'
-      click_button('Search')
+      page.find('#search').click
     end
     expect(page).to have_content('Chicken Caesar Salad')
     expect(page).not_to have_content('Lemon Chicken')

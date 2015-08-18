@@ -1,15 +1,22 @@
 <div class='row'>
-  <div class='col-md-6 col-md-offset-3'>
+  <div class='col-md-6 col-md-offset-3 recipe-profile'>
     <%if @recipe %>
      <h4 class='recipe-name'><%=@recipe.name%></h4>
       <%=image_tag(@recipe.image, class: "recipe-image center-block")%>
-      <p class='recipe-detail'><i>Cooking Time:</i> <b><%=@recipe.cooking_time%></b></p>
-        <ul class='recipe-detail'>
-        <li><i>Ingredients:</i></li>
-         <%@recipe.quantity_of_ingredients.each do |ingredient|%>
-            <li><b><%=ingredient%></b></li>
+      <div id="recipe-cooking-time">
+       <p class='recipe-detail'><i>Cooking Time:</i> <b><%=@recipe.cooking_time%></b></p>
+      </div>
+      <div id="recipe-ingredients">
+      <span class='recipe-detail'><i>Ingredients:</i></span>
+      <!-- display the first ingredient parallel with label -->
+      <span id="first-ingredient"> <b><%=@recipe.quantity_of_ingredients.first%></b></span>
+      <!-- display the remaining ingredient elements excluding first ingredient already displayed -->
+       <%@recipe.quantity_of_ingredients.each_with_index do |ingredient, index|%>
+          <% if index !=0 %>
+            <p class='ingredient-display'><b><%=ingredient%></b></p>
           <%end%>
-        </ul>
+        <%end%>
+      </div>
     <%else%>
       <%=@message %>
     <%end%>

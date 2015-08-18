@@ -14,22 +14,52 @@
  *= require_self
  */
 
+/*package sizing for table images*/
 .recipe-small-image{
   width:70px;
+  height: 50px;
   border-radius: 100%;
 }
 
+/*recipe profile styling*/
+.recipe-profile{
+  background-color: #DEE8E8;
+}
+
 .recipe-image{
-  width:400px;
-  height: 300px;
+  width: 70%;
+  height: 70%;
+  margin-bottom: 15px;
 }
 
 .recipe-name{
   text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#recipe-cooking-time{
+  border-bottom: 1px dotted black;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+#recipe-ingredients{
+  margin: 5px 80px 40px 80px;
+  border-bottom: 1px dotted black;
 }
 
 .recipe-detail{
-  text-align: center;
+  text-align: left;
+}
+
+#first-ingredient{
+  padding-bottom: 10px;
+}
+.ingredient-display{
+  margin-top: 10px;
+  text-align: left;
+  margin-left: 77px;
 }
 
 ul{
