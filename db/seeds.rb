@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#creating recipes for database
+#creating 15 dummy recipes for database
 @recipe = Recipe.create(name: "Lemon Chicken", cooking_time: "30 minutes", :image => File.open('db/images/chicken.jpg', 'rb'))
 @recipe.ingredients.create(name: "Chicken")
 @recipe.ingredients.create(name: "Lemon")

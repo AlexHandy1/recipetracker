@@ -33,11 +33,14 @@ Summary
 
   * Test driven development through unit tests and feature tests using Rspec and Capybara
 
-* One key learning was around optimal way to conduct filtering by separate attributes (including those within an object e.g. ingredients) as opposed to an attrbute wide text search. Designed implementation which created specific queries for each search and leveraged the ```joins``` Active Record method to search nested attributes
+* One key learning was around optimal way to conduct filtering by separate attributes (including those within an object e.g. ingredients) as opposed to an attribute wide text search. Designed implementation which created specific queries for each search and leveraged the ```joins``` Active Record method to search nested attributes.
 
 * Further detail on areas where I would extend the application can be found listed below in 'Further improvements'
 
 * Key outstanding questions would relate to the star feature and accompanying user journey as referenced earlier
+
+Screenshots
+-------
 
 ![Recipe Tracker](https://github.com/AlexHandy1/recipetracker/blob/master/app/assets/images/RecipeTracker.png)
 ![Recipe Profile Page](https://github.com/AlexHandy1/recipetracker/blob/master/app/assets/images/RecipeProfile.png)
@@ -103,5 +106,5 @@ Further Improvements
 
 * Store images in Amazon Web Servers to allow for much larger collection of images to be efficiently stored
 
-* Enable further user interaction on recipes and introduce more SPA/ AJAX features to improve UX and perceived 'speed' of site e.g. user can add comments without reloading page
+* Enable further user interaction on recipes and introduce more single page application/ AJAX driven features to improve UX and perceived 'speed' of site e.g. user can add comments without reloading page
 

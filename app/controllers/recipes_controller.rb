@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
 
-  # For filtering recipes by name, cooking time and ingredients, embedded 3 separate forms that provided parameters for tailored search methods to be called on the Recipe model to return the relevant query resultsfrom the database.
+  #For filtering recipes by name, cooking time and ingredients, embedded 3 separate forms that provided parameters for tailored search methods to be called on the Recipe model to return the relevant query results from the database.
   def index
      if params[:search_name]
       @recipes = Recipe.search_name(params[:search_name]).paginate(:per_page => 10, :page => params[:page])
@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
     end
   end
 
-  #set-up error rescuing structure to present message if recipe doesn't exist
+  #Set-up error rescuing structure to present message if recipe doesn't exist
   def show
     begin
     @recipe = Recipe.find(params[:id])
