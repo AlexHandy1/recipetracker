@@ -79,10 +79,8 @@ Run the below commands in your command line interface to view the web page at lo
 git clone https://github.com/AlexHandy1/recipetracker.git
 cd recipetracker
 bundle
-bin/rake db:create RAILS_ENV=test
-bin/rake db:create RAILS_ENV=development
-bin/rake db:migrate RAILS_ENV=test
-bin/rake db:migrate RAILS_ENV=development
+bin/rake db:create
+bin/rake db:migrate
 bin/rake db:seed
 bin/rails s
 
